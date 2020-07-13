@@ -1,0 +1,11 @@
+<script>
+let dy = new Date();
+let daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+document.write("<b>Today is: </b>",daysList[dy.getDay()],"<br><br>");
+let ampm = dy.getHours() > 12 ? "PM" : "AM";
+let hours = dy.getHours() % 12;
+hours = hours ? hours : 12;
+document.write("<b>Current Time is: </b>",hours," ",ampm," : ",dy.getMinutes()," : ",dy.getSeconds())
+
+
+</script>

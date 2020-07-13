@@ -1,0 +1,14 @@
+<button id="printbtn">print</button>
+<p> <b>
+Write a JavaScript program to print the contents of the current window.
+</b> </p>
+
+<script>
+var printer = document.getElementById("printbtn");
+
+function printPage() {
+  window.print();
+}
+
+printer.addEventListener("click", printPage);
+</script>
