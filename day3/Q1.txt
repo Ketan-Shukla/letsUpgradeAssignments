@@ -1,0 +1,31 @@
+The console object provides access to the browser's debugging console.The console object can be accessed from any global object.
+Window on browsing scopes and WorkerGlobalScope as specific variants in workers via the property console. 
+It's exposed as Window.console, and can be referenced as simply console. For example:
+console.log("Failed to open the specified link")
+
+console.log()
+For general output of logging information. You may use string substitution and additional arguments with this method. Outputs a message to the console.
+
+console.warn()
+using the warn or error methods also gives us a stack trace. Outputs a warning message to the console. Visual differences help when you need to identify any
+errors or warnings in the console at a quick glance. Warn have a yellow background in Chrome.
+
+console.error()
+It displays both a red background and a stack trace, where info and warn do not.Outputs an error message to the console.Outputs an error message.
+You may use string substitution and additional arguments with this method. console.exception() = An alias for error()
+
+console.group()
+Creates a new inline group, indenting all following output by another level. To move back out a level, call groupEnd().Each call to console.group() 
+will start a new group, or create a new level if it’s called inside a group. Each time you call console.groupEnd() it will end the current group or 
+level and move back up one level.
+
+console.assert()
+Assert takes two arguments — if the first argument evaluates to a falsy value, then it displays the second argument.
+let isTrue = false;
+console.assert(isTrue, 'This will display');
+isTrue = true;
+
+console.time()
+The time method, like the group method above, comes in two parts. A method to start the timer and a method to end it.
+Once the timer has finished, it will output the total runtime in milliseconds.To start the timer, you use console.time('id for timer')
+and to end the timer you use console.timeEnd('id for timer') . You can have up to 10,000 timers running
