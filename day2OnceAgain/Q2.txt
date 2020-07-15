@@ -1,0 +1,163 @@
+Functions
+1. toUpperCase() --> returns the new string in uppercase format of source string
+	var str = "ketan";
+	var str2 = str.toUpperCase();
+	console.log(str);//ketan
+	console.log(str2);//KETAN
+2.toLowerCase() --> returns the new string in lowercase format of source string
+	var str = "KETAN";
+	var str2 = str.toLowerCase();
+	console.log(str);//KETAN
+	console.log(str2);//ketan
+3.trim() --> returns a new string with removed white space from start and end of the string.
+	var str = "   KETAN  ";
+	var trimmedStr = str.trim(); 
+	console.log(trimmedStr); //"KETAN"
+	var str1 = "J  e";
+	var trimmedStr1 = str1.trim();
+	console.log(trimmedStr1); //"J  e"
+	var str2 = "J   .";
+	var trimmedStr2 = str2.trim();
+	console.log(trimmedStr2); //"J   ."
+4.trimStart() --> returns a new string with removed white space from start of the string. trimLeft() is an alias of this method.
+	var str = "   KETAN  ";
+	var trimmedStr = str.trimStart(); 
+	console.log(trimmedStr); //"KETAN  "
+5.trimEnd() --> returns a new string with removed white space at end of the string. trimRight() is an alias of this method.
+	var str = "   KETAN  ";
+	var trimmedStr = str.trimEnd(); 
+	console.log(trimmedStr); //"   KETAN"
+5.charAt() --> returns the character at the given index.
+	var str = "KETAN";
+	console.log( str.charAt() ); //the default index is 0 so "K"
+	str.charAt(1); //e
+	str.charAt(100); //"" if max than str length returns empty string
+	str.charAt(-1); // for all negative values returns empty string
+	//no type conversion takes pace so the result is empty string
+	str.charAt("1");  //""
+6.charCodeAt() --> returns the UTF-16 character code of the character at the given index. All rules of index in chatAt method is similar to charCodeAt.
+// char code for a - 97, b =98 ,... z -122
+// char code for A - 65 ... Z - 90
+	var str = "JaggaJasus";
+	str.charCodeAt(0); // 74
+	str.charCodeAt(1); // 97
+7.concat(arguments) concate the arguments passed with the source string. It doesn’t change on source string.
+	var str = "JavaScript";
+	str.concat(' ', "Jeep", "."); // JavaScript Jeep.
+8.includes(searchingString) returns whether searching String may be found in source string.
+	var str = "JavaScript Jeep";
+	str.includes("Jeep"); // true
+	str.includes("jeep"); // false --> case sensitive
+	// we can also specify the index to start search
+	var str = "Jeep";
+	str.includes("Jeep", 0);  // true
+	str.includes("Jeep", 1);  // false
+9.endsWith(searchString) returns whether the source string ends with the searching string.
+	var str = "JavaScript Jeep";
+	str.endsWith("Jeep"); // true
+	str.endsWith("jeep"); // false
+	str.endsWith("Kepp"); // false
+	// we can also specify the endPosition(index+1) to which the test should run
+	var str = "Jeep";
+	str.endsWith("J");  //false
+	str.endsWith("J", 1) // true
+10.startsWith(searchString) returns whether the source string starts with the searching string.
+	var str = "JavaScript Jeep";
+	str.startsWith("Java"); // true
+	str.startsWith("java"); // false
+	str.startsWith("Ava"); // false
+	// we can also specify the startPosition(index) to which the test should run
+	var str = "JAVASCRIPT"
+	str.startsWith("VA");  //false
+	str.startsWith("VA", 2) // true
+	str.startsWith("J", 1); // false --> because we are saying to start search from index 1 .
+11.includes(searchString) determines whether search string found within source String
+	var str = "JavaScript Jeep";
+	str.includes("Java"); // true
+	str.includes("java"); // false
+	str.includes(""); // true
+	str.includes(); // false
+	 
+	we can also specify the index from which the search should start
+	str = "JavaScript";
+	str.include("Java", 0); //true
+	str.include("Java", 1); //false
+12 . repeat(times) returns a new string containing the specified number of copies of the given string.Repeat value must be non-negative and less than infinity, otherwise range error will br thrown.
+	var str = "Jeep ";
+	var repeatedString = str.repeat(1); // "Jeep "
+	repeatedString = str.repeat(2); // "Jeep Jeep"
+	repeatedString = str.repeat(); // ""
+	repeatedString = str.repeat(0); // ""
+13.indexOf(searchString) return the index of first occurrence of search string on the source string , if the search string not present in the source string then it returns -1.
+	var str = "Java Jeep JavaScript Jeep";
+	str.indexOf("Jeep"); // 5
+	str.indexOf('jeep'); // -1
+	// we can also specify the index from which the search should happen
+	str.indexOf("Java", 0); // 0
+	str.indexOf("Java", 1); // 10
+14.lastIndexOf(searchString) return the index of last occurrence of search string on the source string , if the search string not present in the source string then it returns -1.
+	var str = "Java Jeep Java Jeep";
+	str.lastIndexOf("Jeep"); // 15
+	str.lastIndexOf('jeep'); // -1
+15.match(regex) extract the result of matching a string against a regular expression.
+	// Extracting vowel character
+	var str = 'I love cooking.';
+	var regex = /[AEIOUaeiou]/gi;
+	var result = str.match(regex); //["I","o","e","o","o","i"]
+16.search(regex) this method test whether the source string matches the regex provided. If the source string doesn’t match with the regex then return -1.
+	var str = "str";
+	var regex1 = /a-z/gi;
+	var regex2 = /[aeiou]/gi;
+	str.search(regex1); // 0 ('s' matches with the regex , where 's' is 
+	at 0th index)
+	str.search(regex2); // -1 (because there is no match) 
+17.padStart(newStringLength) This method add the padding (space by default) to the source string at the beginning of the string ,so that the source string length is converted to the provided length.
+	var str = "Jeep";
+	str.padStart(5); // " Jeep"
+	str.padStart(10); // "      Jeep"
+	str.padStart(5, "*"); // "*Jeep"
+	str.padStart(10,"@"); // "@@@@@@Jeep"
+	// If the value is lower than the current string's length, the current string will be returned as is.
+	str.padStart(1); // "Jeep"
+	str.padStart(); // "Jeep"
+	str.padStart(-1); // "Jeep"
+18.padEnd(newStringLength) This method add padding (space by default) to the source string at the end of the string , so that the source string length is converted to the provided length.
+	var str = "Jeep";
+	str.padEnd(5); // "Jeep "
+	str.padEnd(10); // "Jeep      "
+	str.padEnd(5, "*"); // "Jeep*"
+	str.padEnd(10,"@"); // "Jeep@@@@@@"
+	// If the value is lower than the current string's length, the current string will be returned as is.
+	str.padEnd(1); // "Jeep"
+	str.padEnd(); // "Jeep"
+	str.padEnd(-1); // "Jeep"
+19.replace(regex, stringToReplace) this method replaces the string with stringToReplace which matches the pattern
+	var str = "I love dog. I love dog";
+	var regex =  /dog/g;
+	str.replace(regex, 'cat'); // I love cat. I love cat
+20.splice(fromIndex, toIndex) extracts part of source string and returns it as a new string .
+	var str = "JavaScript Jeep";
+	str.slice(1); "avascript Jeep"
+	str.slice(10); " Jeep"
+	str.slice(11); "Jeep"
+	str.slice(11, 12); "J"
+	str.slice(11, 14); "Jee"
+	str.slice(0); "Javascript Jeep"
+	str.slice(); "Javascript Jeep"
+21 . split(separator) this method split the string based on the separator.
+	var str = "Java Jeep";
+	str.split(""); // ['J', 'a', 'v', 'a' ," ", 'J', 'e','e', 'p']
+	str.split(" "); ["Java", "Jeep"]
+	str.split() // ["Java Jeep"]
+	------------------------------
+	// limiting number of split
+	var str = "this,is,a,test";
+	str.split(","); ["this", "is","a","test"]
+	str.split(",", 1); ["this"]
+	str.split(",", 2); ["this", "is"]
+	str.split(",",100); ["this", "is","a","test"]
+22 . substring(startIndex, endIndex) returns the the string between the start and end indexes, or to the end of the string.
+	var str = "JavaScript Jeep";
+	str.substring(11); // "Jeep"
+	str.substring(11,12); // "J"
+	str.substring(); // "JavaScript Jeep"
