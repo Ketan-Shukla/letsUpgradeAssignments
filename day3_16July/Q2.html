@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html> 
+	<body> 
+		<h1 style="color: green"> 
+			Please check the console 
+		</h1> 
+		<script>
+			let OS = prompt("enter OS name and Verison number")
+			// var OS = "Android 76899";             
+			var versionNO = OS.match(/(\d+)/);
+			// var thenum = OS.replace(/\D/g, '');
+			console.log("The OS name is "+OS.substring(0, OS.length-versionNO[0].length )+"version is "+versionNO[0])
+
+		</script>
+	</body>
+</html>
