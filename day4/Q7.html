@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title> 
+		Wage Calculator
+	</title> 
+</head> 
+
+<body style="text-align:center;" id="body"> 
+	<h1 style="color:red;"> 
+			Enter the number till which you want prime numbers 
+		</h1> 
+	<input type='text' id='id1' /> 
+	<br> 
+	<br> 
+	<button onclick="calcu_Run()"> 
+		click to set 
+	</button> 
+	<p id="cal_DOWN" style="color:blue; 
+							font-size: 20px; 
+							font-weight: bold;"> 
+	</p> 
+	<script> 
+		var el_down = document.getElementById("cal_DOWN"); 
+		var inputF = document.getElementById("id1"); 
+
+		function calcu_Run() { 
+			var input = inputF.value;
+			let firstNumber = 1
+			let lastNumber = parseInt(input)
+			let numberList = ""
+			let plist = []
+			console.log("List of prime numbers from "+firstNumber+" to "+lastNumber+":")
+			console.log("2")
+			for(var number = firstNumber+2;number<lastNumber+1;number+=2) {
+				let isPrime = true;
+				let divisor = 2
+				while(divisor**2 <= number){
+					if(number % divisor == 0){
+						isPrime =  false;
+						break
+					}
+					divisor+=1
+				}
+				if(isPrime){
+					numberList+=number;
+					if(number+4<lastNumber+1)
+						numberList+=","
+					plist.push(number)
+				}
+				
+			}
+				console.log(plist);
+				el_down.innerHTML = numberList;
+		}
+	</script> 
+</body> 
+
+</html> 

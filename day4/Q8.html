@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title> 
+		Question 8
+	</title> 
+</head> 
+
+<body style="text-align:center;" id="body"> 
+	<h1 style="color:red;"> 
+			Replaced functions with arrow function
+		</h1> 
+	<br> 
+	<br> 
+	<p id="cal_DOWN" style="color:blue; 
+							font-size: 20px; 
+							font-weight: bold;"> 
+	</p> 
+
+	<script> 
+		var el_down = document.getElementById("cal_DOWN"); 
+		function ask(question,yes,no) {
+			if(confirm(question)) yes();
+			else no();
+		}
+		ask("Do you agree?",()=>{alert("You agreed.");},()=>{alert("You cancelled the execution.")} )
+	</script> 
+</body> 
+
+</html> 

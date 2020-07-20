@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title> 
+		Wage Calculator
+	</title> 
+</head> 
+
+<body style="text-align:center;" id="body"> 
+	<h1 style="color:red;"> 
+			Enter the sales you have made 
+		</h1> 
+	<input type='text' id='id1' /> 
+	<br> 
+	<br> 
+	<button onclick="calcu_Run()"> 
+		click to set 
+	</button> 
+	<p id="cal_DOWN" style="color:blue; 
+							font-size: 20px; 
+							font-weight: bold;"> 
+	</p> 
+	<script> 
+		var el_down = document.getElementById("cal_DOWN"); 
+		var inputF = document.getElementById("id1"); 
+
+		function calcu_Run() { 
+			var input = inputF.value;
+			if(parseFloat(input)>=20000) {
+				el_down.innerHTML = " You have earend reward  of 10% "
+			} else if(parseFloat(input)>=10001) {
+				el_down.innerHTML = " You have earend reward  of 7% "
+			} else if(parseFloat(input)>=5001) {
+				el_down.innerHTML = " You have earend reward  of 5% "
+			} else if(parseFloat(input)>=0) {
+				el_down.innerHTML = " You have earend reward  of 2% "			
+			}
+		}
+	</script> 
+</body> 
+
+</html> 
