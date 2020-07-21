@@ -1,0 +1,80 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title> 
+		Return Cubes
+	</title> 
+</head> 
+
+<body style="text-align:center;" id="body"> 
+	<h1 style="color:red;"> 
+			Enter the number till which you want the series. cube of odd numbers till this number will be returned. 
+		</h1> 
+	<input type='text' id='id1' /> 
+	<br> 
+	<br> 
+	<button onclick="calcu_Run()"> 
+		click to set 
+	</button> 
+	<p id="NumberListText" style="color:blue; 
+							font-size: 20px; 
+							font-weight: bold;"> 
+	</p>
+	<p id="NumberList" style="color:green; 
+							font-size: 15px; 
+							font-weight: bold;"> 
+	</p> 	
+	<p id="NumberListOddText" style="color:blue; 
+						font-size: 20px; 
+						font-weight: bold;"> 
+	</p> 	
+	<p id="NumberListOdd" style="color:green; 
+							font-size: 15px; 
+							font-weight: bold;"> 
+	</p>
+	<p id="NumberListOddCubeText" style="color:blue; 
+							font-size: 20px; 
+							font-weight: bold;"> 
+	</p>
+	<p id="cal_DOWN" style="color:green; 
+							font-size: 15px; 
+							font-weight: bold;"> 
+	</p>
+	
+	<script> 
+		var el_down = document.getElementById("cal_DOWN");
+		var numberListText = document.getElementById("NumberListText");
+		var numberList = document.getElementById("NumberList");
+		var numberListOddText = document.getElementById("NumberListOddText");
+		var numberListOdd = document.getElementById("NumberListOdd");
+		var numberListOddCubeText = document.getElementById("NumberListOddCubeText");
+		var inputF = document.getElementById("id1"); 
+
+		function calcu_Run() { 
+			var input = Math.abs(inputF.value);
+			let list1 = [];
+			let list2 = [];
+			let list3 = [];
+			numberListText.innerHTML = "List of all numbers till "+input+":"
+			console.log("List of till numbers from "+input+":")
+			list1 =  Array.from(Array(input).keys());
+			numberList.innerHTML = list1;
+			console.log(list1);
+			list2 =	Array.from(list1.filter((ele) => ele % 2 == 1));
+			numberListOddText.innerHTML = "List of all odd numbers till "+input+":"
+			numberListOdd.innerHTML = list2;
+			console.log("List of all odd numbers till "+input+":");
+			console.log(list2);
+			numberListOddCubeText.innerHTML = "List of all cubes of odd numbers till "+input+":"
+			for (var i = 0; i < list2.length; i++)
+            {
+                list3[i] = Math.pow(list2[i],3);
+            }
+			console.log(list3);
+			el_down.innerHTML = list3;
+		}
+	</script> 
+</body> 
+
+</html> 

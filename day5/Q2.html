@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title> 
+		Question 2
+	</title> 
+</head> 
+
+<body style="text-align:center;" id="body"> 
+	<h1 style="color:red;"> 
+			Q2 please check the console
+		</h1> 
+	<br> 
+	<br> 
+	<p id="cal_DOWN" style="color:blue; 
+							font-size: 20px; 
+							font-weight: bold;"> 
+	</p> 
+
+	<script> 
+		class User {
+			Name = "John";
+			Age = 99;
+			email= "john.doe@examplemail.com";
+			coins= 0;
+			courses= "";
+			login() {
+				console.log(this.Name+" logged in.");
+			}
+			logout() {
+				console.log(this.Name+" logged out");
+			}
+		}
+		class Moderator extends User {
+			addCoins(user,coins) {
+				user.coins +=  coins;
+			}
+			removeCoins(user,coins) {
+				user.coins -=  coins;
+			}
+		};
+		class Admin extends Moderator {
+				addCourse(user,course) {
+					user.course = course;
+				}
+				removeCourse(user) {
+				user.course=""
+				}
+		}
+		let user = new User();
+		let mod = new Moderator();
+		let admin = new Admin();
+		console.log(JSON.stringify(user));
+		user.login();
+		user.logout();
+		console.log("UserCoin before: ",user.coins);
+		mod.addCoins(user,100);
+		console.log("UserCoins After Add:",user.coins);
+		mod.removeCoins(user,10);
+		console.log("UserCoins After remove:",user.coins);
+		console.log("UserCoins Course:",user.course);
+		admin.addCourse(user,"JScourse");
+		console.log("UserCoins Course After add:",user.course);
+		admin.removeCourse(user);
+		console.log("UserCoins Course After remove:",user.course);
+		
+		
+	</script> 
+</body> 
+
+</html> 
