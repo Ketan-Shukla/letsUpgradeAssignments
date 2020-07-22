@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title> 
+		Question 3
+	</title> 
+</head> 
+
+<body style="text-align:center;" id="body" onload="startTime()"> 
+	<style>
+		body {
+		  padding: 25px;
+		  background-color: white;
+		  color: black;
+		  font-size: 25px;
+		}
+
+		.dark-mode {
+		  background-color: black;
+		  color: white;
+		}
+	</style>
+	<h1 id="heading" style="color:red;"> 
+			Q1 Clock and  darkmode
+		</h1> 
+	<h2 id="Greeting">Toggle Dark/Light Mode</h2>
+	<p>Click the button to toggle between dark and light mode for this page.</p>
+	<button onclick="myFunction()">Toggle dark mode</button>
+	<br> 
+	<br> 
+	<p id="clk" style="color:blue; 
+							font-size: 40px; 
+							font-weight: bold;"> 
+	</p> 
+
+	<script> 
+			let cal = document.getElementById("clk");
+			let greet = document.getElementById("Greeting");
+			let name = prompt("Hello user please enter your name!","");
+			greet.innerHTML = "Hi "+name+" How are you today!"
+			function startTime() {
+			  var today = new Date();
+			  var h = today.getHours();
+			  var m = today.getMinutes();
+			  var s = today.getSeconds();
+			  m = checkTime(m);
+			  s = checkTime(s);
+			  document.getElementById('clk').innerHTML =
+			  h + ":" + m + ":" + s;
+			  var t = setTimeout(startTime, 500);
+			}
+			function myFunction() {
+			   var element = document.body;
+			   element.classList.toggle("dark-mode");
+			}
+			function checkTime(i) {
+			  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+			  return i;
+			}
+			
+	</script> 
+</body> 
+
+</html> 

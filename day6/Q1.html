@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title> 
+		Question 1
+	</title> 
+</head> 
+
+<body style="text-align:center;" id="body"> 
+	<h1 id="heading" style="color:red;"> 
+			Q1 Changing the Background Color with JavaScript every 5 seconds
+		</h1> 
+	<br> 
+	<br> 
+
+	<script> 
+			let cal = document.getElementById("heading");
+			let count = 5;
+			setInterval(() => {
+				if(count == 0) {
+				count = 5;
+				let colours= ["yellow","green","blue","orange","red","purple","pink"]; 	
+				document.body.style.background = colours[Math.floor(Math.random() * Math.floor(7))];
+				}
+				else {
+				count--;
+				}
+				cal.innerHTML = "Q1 Changing the Background Color with JavaScript every "+count+" seconds"
+			},1000);
+	</script> 
+</body> 
+
+</html> 
